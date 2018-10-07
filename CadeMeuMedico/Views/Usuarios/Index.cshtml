@@ -1,0 +1,86 @@
+﻿@model IEnumerable<CadeMeuMedico.Models.Usuarios>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Adicionar novo usuário", "Adicionar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.IDUsuario }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.IDUsuario }, new { @class = "excluir"})
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section script{
+    <script>
+
+        $(function () {
+            var linhaAtual;
+
+            $(".excluir").on("click", function () {
+                if (confirm("Deseja realmente excluir o usuário?")) {
+                    var urlExclusao = $(this).attr("href");
+                    linhaAtual = $(this).closest("tr");
+
+                    $.ajax({
+                        url: urlExclusao,
+                        type: "POST"
+                    }).done(function (excluiu) {
+                        if (excluiu) {
+                            linhaAtual.remove();
+                        } else {
+                            alert("Erro na exclusão");
+                        }
+                    }).fail(function () {
+                        alert("Erro na exclusão");
+                    });
+
+                }
+
+                return false;
+            });
+
+        });
+
+    </script>
+}

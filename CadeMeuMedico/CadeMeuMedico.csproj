@@ -106,8 +106,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Global.asax" />
     <Compile Include="Controllers\CidadesController.cs" />
+    <Compile Include="Controllers\EspecialidadesController.cs" />
     <Compile Include="Controllers\MedicosController.cs" />
     <Compile Include="Controllers\MensagensController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Models\CidadesMetadado.cs" />
     <Content Include="Models\ModeloDeDados.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -226,6 +228,12 @@
     <Content Include="Views\Cidades\Index.cshtml" />
     <Content Include="Views\Cidades\Adicionar.cshtml" />
     <Content Include="Views\Cidades\Editar.cshtml" />
+    <Content Include="Views\Especialidades\Index.cshtml" />
+    <Content Include="Views\Especialidades\Adicionar.cshtml" />
+    <Content Include="Views\Especialidades\Editar.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\Adicionar.cshtml" />
+    <Content Include="Views\Usuarios\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -8,16 +8,16 @@ using System.Web.Mvc;
 
 namespace CadeMeuMedico.Controllers
 {
-    public class CidadesController : Controller
+    public class EspecialidadesController : Controller
     {
+
         private EntitiesCadeMeuMedicoBD db = new EntitiesCadeMeuMedicoBD();
 
-        // GET: Cidades
+        // GET: Especialidades
         public ActionResult Index()
         {
-            var cidades = db.Cidades.ToList();
-
-            return View(cidades);
+            var especialidades = db.Especialidades.ToList();
+            return View(especialidades);
         }
 
         public ActionResult Adicionar()
@@ -26,38 +26,36 @@ namespace CadeMeuMedico.Controllers
         }
 
         [HttpPost]
-        public ActionResult Adicionar(Cidades cidade)
+        public ActionResult Adicionar(Especialidades especialidade)
         {
             if (ModelState.IsValid)
             {
-                db.Cidades.Add(cidade);
+                db.Especialidades.Add(especialidade);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cidade);
+            return View(especialidade);
         }
 
         public ActionResult Editar(long id)
         {
-            var cidade = db.Cidades.Find(id);
-            
-            return View(cidade);
+            var especialidade = db.Especialidades.Find(id);
+
+            return View(especialidade);
         }
 
         [HttpPost]
-        public ActionResult Editar(Cidades cidade)
+        public ActionResult Editar(Especialidades especialidade)
         {
-
             if (ModelState.IsValid)
             {
-                db.Entry(cidade).State = EntityState.Modified;
+                db.Entry(especialidade).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cidade);
-
+            return View(especialidade);
         }
 
         [HttpPost]
@@ -65,16 +63,16 @@ namespace CadeMeuMedico.Controllers
         {
             try
             {
-                Cidades cidade = db.Cidades.Find(id);
-                db.Cidades.Remove(cidade);
-                db.SaveChanges(); 
+                Especialidades especialidades = db.Especialidades.Find(id);
+                db.Especialidades.Remove(especialidades);
+                db.SaveChanges();
                 return Boolean.TrueString;
             }
             catch
             {
                 return Boolean.FalseString;
             }
-            
+
         }
     }
 }

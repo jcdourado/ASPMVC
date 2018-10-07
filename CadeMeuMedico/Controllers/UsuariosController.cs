@@ -8,16 +8,16 @@ using System.Web.Mvc;
 
 namespace CadeMeuMedico.Controllers
 {
-    public class CidadesController : Controller
+    public class UsuariosController : Controller
     {
         private EntitiesCadeMeuMedicoBD db = new EntitiesCadeMeuMedicoBD();
 
-        // GET: Cidades
+        // GET: Usuarios
         public ActionResult Index()
         {
-            var cidades = db.Cidades.ToList();
+            var usuarios = db.Usuarios.ToList();
 
-            return View(cidades);
+            return View(usuarios);
         }
 
         public ActionResult Adicionar()
@@ -26,38 +26,35 @@ namespace CadeMeuMedico.Controllers
         }
 
         [HttpPost]
-        public ActionResult Adicionar(Cidades cidade)
+        public ActionResult Adicionar(Usuarios usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Cidades.Add(cidade);
+                db.Usuarios.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cidade);
+            return View(usuario);
         }
 
         public ActionResult Editar(long id)
         {
-            var cidade = db.Cidades.Find(id);
-            
-            return View(cidade);
+            Usuarios usuario = db.Usuarios.Find(id);
+            return View(usuario);
         }
 
         [HttpPost]
-        public ActionResult Editar(Cidades cidade)
+        public ActionResult Editar(Usuarios usuario)
         {
-
             if (ModelState.IsValid)
             {
-                db.Entry(cidade).State = EntityState.Modified;
+                db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cidade);
-
+            return View(usuario);
         }
 
         [HttpPost]
@@ -65,16 +62,16 @@ namespace CadeMeuMedico.Controllers
         {
             try
             {
-                Cidades cidade = db.Cidades.Find(id);
-                db.Cidades.Remove(cidade);
-                db.SaveChanges(); 
+                Usuarios usuario = db.Usuarios.Find(id);
+                db.Usuarios.Remove(usuario);
+                db.SaveChanges();
                 return Boolean.TrueString;
             }
             catch
             {
                 return Boolean.FalseString;
             }
-            
         }
+
     }
 }

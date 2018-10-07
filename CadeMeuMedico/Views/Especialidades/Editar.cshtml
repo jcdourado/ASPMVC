@@ -1,4 +1,4 @@
-﻿@model CadeMeuMedico.Models.Cidades
+﻿@model CadeMeuMedico.Models.Especialidades
 
 @{
     ViewBag.Title = "Editar";
@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Cidades</h4>
+        <h4>Especialidades</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        @Html.HiddenFor(model => model.IDCidade)
+        @Html.HiddenFor(model => model.IDEspecialidade)
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
