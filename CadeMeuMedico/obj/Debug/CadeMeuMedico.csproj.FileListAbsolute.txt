@@ -73,3 +73,7 @@ C:\Users\jcd17\source\repos\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.
 C:\Users\jcd17\source\repos\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.csproj.CopyComplete
 C:\Users\jcd17\source\repos\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.dll
 C:\Users\jcd17\source\repos\CadeMeuMedico\CadeMeuMedico\obj\Debug\CadeMeuMedico.pdb
+C:\Users\jcd17\source\repos\CadeMeuMedico\CadeMeuMedico\bin\EntityFramework.dll
+C:\Users\jcd17\source\repos\CadeMeuMedico\CadeMeuMedico\bin\EntityFramework.SqlServer.dll
+C:\Users\jcd17\source\repos\CadeMeuMedico\CadeMeuMedico\bin\EntityFramework.xml
+C:\Users\jcd17\source\repos\CadeMeuMedico\CadeMeuMedico\bin\EntityFramework.SqlServer.xml
